@@ -32,4 +32,4 @@
  :set-greeting
  validate-spec
  (fn [db [_ value]]
-   (assoc db :greeting value)))
+   (assoc db :greeting value)))                             ;assoc dodaje klucz aablo zmienia
