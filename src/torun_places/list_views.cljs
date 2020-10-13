@@ -22,7 +22,7 @@
            (r/create-class
              {:reagent-render
               (fn []
-                  (let [dataSource (.cloneWithRows ds (clj->js @(rf/subscribe [:get-greeting])))]
+                  (let [dataSource (.cloneWithRows ds (clj->js @(rf/subscribe [:get-views])))]
                        [list-view
                         {:style               {:flex       1
                                                :align-self "stretch"}

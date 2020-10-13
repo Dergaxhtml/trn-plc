@@ -2,6 +2,21 @@
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
-  :get-greeting
+  :get-views
   (fn [db _]
-    (:greeting db)))
+    (:views db)))
+
+(reg-sub
+  :get-showing-todos
+  (fn [{:keys [views showing]} _]
+      (filter-shown-todos views showing)))
+
+(reg-sub
+  :get-showing
+  (fn [db _]
+      (:showing db)))
+
+(reg-sub
+  :get-showing
+  (fn [db _]
+      (:showing db)))

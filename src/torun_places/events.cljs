@@ -38,4 +38,9 @@ reg-event-db
 :load-views
 [validate-spec update-storage]
 (fn [db [_ views]]
-    (update db views #(merge % views))))
+    (update db views #(merge % views)))
+
+(defn load-views [callback]
+      (-> (.getItem AsyncStorage "data")
+          (.then #(if % (cljs.reader/read-string %) app-db))
+          (.then callback)))
