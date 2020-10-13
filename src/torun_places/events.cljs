@@ -33,3 +33,9 @@
  validate-spec
  (fn [db [_ value]]
    (assoc db :greeting value)))                             ;assoc dodaje klucz aablo zmienia
+
+reg-event-db
+:load-views
+[validate-spec update-storage]
+(fn [db [_ views]]
+    (update db views #(merge % views))))

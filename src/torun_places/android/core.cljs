@@ -1,8 +1,8 @@
 (ns torun-places.android.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [dispatch dispatch-sync]]
-            [torun-places.events refer [load-views]]
-            [torun-places.root]
+            [torun-places.events :refer [load-views]]
+            [torun-places.root :refer [root]]
             [torun-places.subs]))
 
 
