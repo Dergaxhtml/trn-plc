@@ -1,6 +1,5 @@
 (ns torun-places.db
-  (:require [clojure.spec.alpha :as s]
-            [linked.core :as linked]))
+  (:require [clojure.spec.alpha :as s]))
 
 ;; spec of app-db
 (s/def ::id string?)
@@ -18,5 +17,4 @@
   (s/keys :req-un [::views ::showing]))
 
 ;; initial state of app-db
-(def app-db {:views   (linked/map)
-             :showing :all})
+(def app-db {:showing :all})
