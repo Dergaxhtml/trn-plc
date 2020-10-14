@@ -30,8 +30,8 @@
                         :dataSource dataSource
                         :renderRow (fn [rowData _ rowID]
                                        (r/as-element
-                                        [text "hello"]
-                                      #_   [item-view rowID (js->clj rowData
+                                       #_ [text "hello"]
+                                       [item-view rowID (js->clj rowData
                                                                    :keywordize-keys true)]))
                         :enableEmptySections true}]))
               :componentWillUpdate
