@@ -29,10 +29,10 @@
    app-db))
 
 (reg-event-db
- :set-greeting
+ :set-views
  validate-spec
  (fn [db [_ value]]
-   (assoc db :greeting value)))                             ;assoc dodaje klucz aablo zmienia
+   (assoc db :views value)))                             ;assoc dodaje klucz aablo zmienia
 
 reg-event-db
 :load-views

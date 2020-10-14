@@ -13,9 +13,13 @@
 (def fontawesome-icon (r/adapt-react-class (.-default FontAwesome)))
 (def material-icon (r/adapt-react-class (.-default MaterialIcons)))
 
-(defn item-view [id]
-      [text "hello"]
-      [text "hello"])
+(when (= "android" (.. ReactNative -Platform -OS))
+  (.. ReactNative -UIManager (setLayoutAnimationEnabledExperimental true)))
+
+(defn item-view [id {:keys [id]}]
+  (fn []
+      [text {:set-views "hello"}]
+      [text {:set-views "hello"}]))
 
 (defn list-views []
       (let [ds (new (.-DataSource ListView) #js {:rowHasChanged not=})]
