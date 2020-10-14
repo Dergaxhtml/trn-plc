@@ -1,7 +1,7 @@
 (ns torun-places.android.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [dispatch dispatch-sync]]
-            [torun-places.events :refer [load-views]]
+            [torun-places.events]
             [torun-places.root :refer [root]]
             [torun-places.subs]))
 
@@ -21,10 +21,6 @@
 
  (defn init []
        (dispatch-sync [:initialize-db])
-       (load-views
-         (fn [{:keys [views showing]}]
-             (dispatch [:load-views views])
-             (dispatch [:set-showing showing])))
        (.registerComponent app-registry "TorunPlaces" #(r/reactify-component app-root)))
 
 

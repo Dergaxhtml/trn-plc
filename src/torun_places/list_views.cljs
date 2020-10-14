@@ -3,22 +3,19 @@
    [re-frame.core :as rf]))
 
 (def ReactNative (js/require "react-native"))
-(def FontAwesome (js/require "react-native-vector-icons/FontAwesome"))
-(def MaterialIcons (js/require "react-native-vector-icons/MaterialIcons"))
 (def LayoutAnimation (.-LayoutAnimation ReactNative))
 (def ListView (.-ListView ReactNative))
 
 (def view (r/adapt-react-class (.-View ReactNative)))
 (def list-view (r/adapt-react-class (.-ListView ReactNative)))
-(def fontawesome-icon (r/adapt-react-class (.-default FontAwesome)))
-(def material-icon (r/adapt-react-class (.-default MaterialIcons)))
+(def text (r/adapt-react-class (.-Text ReactNative)))
 
 (when (= "android" (.. ReactNative -Platform -OS))
   (.. ReactNative -UIManager (setLayoutAnimationEnabledExperimental true)))
 
 (defn item-view [id {:keys [id]}]
   (fn []
-      [text {:set-views "hello"}]
+      [text "hello"]
       [text {:set-views "hello"}]))
 
 (defn list-views []
@@ -26,14 +23,15 @@
            (r/create-class
              {:reagent-render
               (fn []
-                  (let [dataSource (.cloneWithRows ds (clj->js @(rf/subscribe [:get-views])))]
+                  (let [dataSource (.cloneWithRows ds (clj->js @(rf/subscribe [:get-places])))]
                        [list-view
                         {:style               {:flex       1
                                                :align-self "stretch"}
                         :dataSource dataSource
                         :renderRow (fn [rowData _ rowID]
                                        (r/as-element
-                                         [item-view rowID (js->clj rowData
+                                        [text "hello"]
+                                      #_   [item-view rowID (js->clj rowData
                                                                    :keywordize-keys true)]))
                         :enableEmptySections true}]))
               :componentWillUpdate

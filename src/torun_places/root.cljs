@@ -25,4 +25,4 @@
          "views"]
 
         [view {:style {:height 10}}]
-        [torun-places.list-views]]])
+        [list-views]]])

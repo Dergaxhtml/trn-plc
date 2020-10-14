@@ -14,7 +14,8 @@
 (s/def ::showing #{:all :active :completed})
 
 (s/def ::app-db
-  (s/keys :req-un [::views ::showing]))
+  (s/keys :req-un [ ::showing]))
 
 ;; initial state of app-db
-(def app-db {:showing :all})
+(def app-db {:places ["a" "b" "c"]
+              :showing :all})
