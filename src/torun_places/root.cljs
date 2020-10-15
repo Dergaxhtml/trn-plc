@@ -22,7 +22,7 @@
                        :margin-bottom 10
                        :text-align    "center"
                        :color         "pink"}}
-         "views"]
+         "Places"]
 
         [view {:style {:height 10}}]
         [list-views]]])

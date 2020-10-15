@@ -26,4 +26,3 @@
 
 
 
-;(.registerComponent ui/app-registry "auricle" #(r/reactify-component app-root)))
