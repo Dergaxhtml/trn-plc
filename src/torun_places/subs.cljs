@@ -2,6 +2,14 @@
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
-  :get-greeting
+  :get-places
   (fn [db _]
-    (:greeting db)))
+    (:places db)))
+
+
+
+(reg-sub
+  :get-showing
+  (fn [db _]
+      (:showing db)))
+
