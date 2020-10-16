@@ -9,12 +9,16 @@
 (def view (r/adapt-react-class (.-View ReactNative)))
 (def list-view (r/adapt-react-class (.-ListView ReactNative)))
 (def text (r/adapt-react-class (.-Text ReactNative)))
+(def touchable (r/adapt-react-class (.-TouchableNativeFeedback ReactNative)))
+
 
 (when (= "android" (.. ReactNative -Platform -OS))
   (.. ReactNative -UIManager (setLayoutAnimationEnabledExperimental true)))
 
 (defn item-view [place]
-  [text place])
+  [touchable {:style {:background-color "#999" :padding 10 :border-radius 5}
+                        :on-press #(println place)}
+   [text place]])
 
 (defn list-views []
       (let [ds (new (.-DataSource ListView) #js {:rowHasChanged not=})]
