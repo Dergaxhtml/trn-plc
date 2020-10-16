@@ -28,7 +28,6 @@
                         :dataSource dataSource
                         :renderRow (fn [rowData _ rowID]
                                        (r/as-element
-                                        #_  [text rf/subscribe [:get-places]]
                                         [item-view  rowData (js->clj rowData
                                                                    :keywordize-keys true)]))
                         :enableEmptySections true}]))
