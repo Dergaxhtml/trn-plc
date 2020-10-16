@@ -1,6 +1,8 @@
 (ns torun-places.db
   (:require [clojure.spec.alpha :as s]))
 
+
+
 ;; spec of app-db
 (s/def ::id string?)
 (s/def ::desc string?)
@@ -17,5 +19,5 @@
   (s/keys :req-un [ ::showing]))
 
 ;; initial state of app-db
-(def app-db {:places ["a" "b" "c"]
+(def app-db {:places ["Port Drzewny" "Kadr" "Widok" "Nowy Most" "Kolorowy Piec"]
               :showing :all})
