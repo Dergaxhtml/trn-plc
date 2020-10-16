@@ -19,5 +19,5 @@
   (s/keys :req-un [ ::showing]))
 
 ;; initial state of app-db
-(def app-db {:places ["Port Drzewny" "Kadr"]
+(def app-db {:places ["Port Drzewny" "Kadr" "Widok" "Nowy Most" "Kolorowy Piec"]
               :showing :all})

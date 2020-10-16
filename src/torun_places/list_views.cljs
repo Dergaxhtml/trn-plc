@@ -13,10 +13,8 @@
 (when (= "android" (.. ReactNative -Platform -OS))
   (.. ReactNative -UIManager (setLayoutAnimationEnabledExperimental true)))
 
-(defn item-view []
-  [text place1]
-  [text place2]
-    )
+(defn item-view [place]
+  [text place])
 
 (defn list-views []
       (let [ds (new (.-DataSource ListView) #js {:rowHasChanged not=})]
@@ -30,7 +28,8 @@
                         :dataSource dataSource
                         :renderRow (fn [rowData _ rowID]
                                        (r/as-element
-                               [item-view rowID (js->clj rowData
+                                        #_  [text rf/subscribe [:get-places]]
+                                        [item-view  rowData (js->clj rowData
                                                                    :keywordize-keys true)]))
                         :enableEmptySections true}]))
               :componentWillUpdate
